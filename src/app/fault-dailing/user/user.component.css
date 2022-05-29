@@ -1,0 +1,32 @@
+.bctrow{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-row-gap: 10px;
+  
+
+    margin: 10px 0 50px 0;
+
+    
+}
+
+.bctrow input, .bctrow label {
+    cursor: pointer;
+}
+
+label{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.form-check:hover{
+    border: 1px solid rgb(41, 136, 3);;
+    background: rgb(94, 243, 35);
+}
+
+
+
+.container {
+    background:rgb(216, 228, 110);
+    height: 90vh;
+}
+

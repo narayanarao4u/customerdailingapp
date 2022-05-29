@@ -1,0 +1,59 @@
+<div class="container">
+    <h1>Customer Dailing</h1>
+    <div class="row" >
+        <div class="col-md">
+            <div class="form-group">
+                <label for="">User</label>
+                <input type="text" class="form-control" [(ngModel)]="user">
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-group">
+                <label for="">User Phone</label>
+                <input type="number" class="form-control" [(ngModel)]="phone">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="form-group">
+            <label for="">Exchange Code</label>
+            <input type="number" class="form-control" placeholder="Ex: 891" [(ngModel)]="dataRow.exchcode">
+        </div>
+        <div class="form-group">
+            <label for="">Customer PhoneNo</label>
+            <input type="number" class="form-control" [(ngModel)]="dataRow.custPhoneNo">
+        </div>
+        <div class="form-group">
+            <a href="tel:+91{{dataRow.exchcode}}{{dataRow.custPhoneNo}}" class="btn btn-block btn-success"> 
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                Dail +91{{dataRow.exchcode}}{{dataRow.custPhoneNo}}
+            </a> 
+        </div>
+    
+        <div class="form-group">
+            <label for="">Remarks</label>
+            <textarea class="form-control" [(ngModel)]="dataRow.Remarks">
+    
+            </textarea>
+        </div>
+    
+        <div class="form-group">
+            <button class="btn btn-block btn-primary" (click)="addData()"> 
+                <i class="fa fa-hdd-o fa-2x" aria-hidden="true"> SUBMIT </i>                
+            </button> 
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-block btn-primary"  [routerLink] = "['/custDailing/dailList', phone]"> 
+                <i class="fa fa-hdd-o fa-2x" aria-hidden="true"> dailed List </i>                
+            </button> 
+        </div>
+    
+    </div>
+    
+   
+    
+
+
+</div>

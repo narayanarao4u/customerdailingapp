@@ -1,0 +1,28 @@
+.bctrow3{
+    display: grid;
+    grid-template-columns: 1fr 10fr 2fr;
+    margin: 0 -15px;
+    padding-top: 10px;
+}
+
+.bctrow2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.bctrow3:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.08);
+    
+}
+
+.userDetails{
+    padding: 5px; 
+    border-radius: 8px; 
+    margin: 10px 0;
+    background-color: #17a2b8;
+    text-align: center;
+    font-size: 24x;
+    font-weight: bolder;
+
+}

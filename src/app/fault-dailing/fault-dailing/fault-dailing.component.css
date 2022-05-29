@@ -1,0 +1,32 @@
+.dataEntry{
+    padding: 1px;
+    background-color: rgb(246, 250, 193);
+}
+
+.btn {
+    margin-bottom: 5px;
+}
+
+.container{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.userDetails{
+    padding: 5px; 
+    border-radius: 8px; 
+    margin: 2px 0;
+    background-color: #17a2b8;
+    text-align: center;
+}
+
+
+
+.container{
+    background-color: rgb(243, 243, 243);
+}
+
+.shade:nth-child( odd ) {
+    background: rgb(187, 185, 185);
+}
+

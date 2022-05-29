@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" [(ngModel)]="type">
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton  type="radio" value="fault" (change)="handleChange($event)"> FAULT
+    </label>
+    <label ngbButtonLabel class="btn-info">
+      <input ngbButton type="radio" value="ogbar" (change)="handleChange($event)"> OGBAR
+    </label>
+    <label ngbButtonLabel class="btn-secondary">
+      <input ngbButton type="radio" value="susnp" (change)="handleChange($event)"> SUSNP
+    </label>
+  </div>
+
+</div>

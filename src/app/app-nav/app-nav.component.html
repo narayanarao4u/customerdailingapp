@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark nav-pills">
+  <a href="#" class="navbar-brand">
+    <img src="/assets/images/bsnl.png" alt="bsnl-logo" class="logo">
+    BSNL Vizag
+  </a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarmenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarmenu">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['faultDailing']" data-toggle="collapse" data-target=".navbar-collapse.show"
+        routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">Home</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['user']" data-toggle="collapse" data-target=".navbar-collapse.show"> Register  </a>
+     </li> 
+    <li class="nav-item"><a class="nav-link" [routerLink]="['telephone']" data-toggle="collapse" routerLinkActive="active">Service Directory  </a></li>
+    <!-- <li class="nav-item"><a class="nav-link" [routerLink]="['custDailing']"> Customer Dailing </a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="['asset']"> IT Assests  </a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="['email']"> E-Office  </a></li>
+       <a class="nav-link" [routerLink]="['faultDailing/UserSummary']" data-toggle="collapse" data-target=".navbar-collapse.show"
+      routerLinkActive="active">User Summary</a>
+  -->
+    
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/User']" data-toggle="collapse" data-target=".navbar-collapse.show"
+      routerLinkActive="active">User Summary</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/EXCHANGE_CODE']" data-toggle="collapse" data-target=".navbar-collapse.show"
+      routerLinkActive="active">Exchange Summary</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/SDECODE']" data-toggle="collapse" data-target=".navbar-collapse.show"
+      routerLinkActive="active">SDE Summary</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/dt']" data-toggle="collapse" data-target=".navbar-collapse.show"
+      routerLinkActive="active">Daily Summary</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/remarks']" data-toggle="collapse" data-target=".navbar-collapse.show"
+      routerLinkActive="active">Remarks Summary</a>
+    </li> 
+
+
+    
+  </ul>
+  </div>
+
+  <!-- old -->
+
+</nav>

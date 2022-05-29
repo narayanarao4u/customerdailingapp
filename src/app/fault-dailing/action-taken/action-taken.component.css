@@ -1,0 +1,9 @@
+.shade:nth-child( even ) {
+    background: rgb(187, 185, 185);
+    border-radius: 0.25em;
+}
+
+.shade:nth-child( odd ) {
+    background: rgb(252, 234, 178);
+    border-radius: 0.25em;
+}

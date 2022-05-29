@@ -1,0 +1,73 @@
+<div class="container">
+    <dailing-option (optionClick)=handleChange($event)></dailing-option>
+    <div class="bct2row">
+        <div>
+            <span class="h5">{{type|uppercase}} ({{summary.total}}) </span>
+        </div>
+        <!-- <div>: <span class="h5">{{summary.answered}} / {{summary.total}} </span></div> -->
+        <div class="prg-bar " >
+            <div class="text-nowrap bgp" [style.width]="summary.perComplete+'%'">
+                {{summary.answered}}
+               
+              </div>
+              <div class=" brp" [style.width]="(100 - summary.perComplete) +'%'">
+                 {{summary.total - summary.answered}}
+               
+              </div>
+
+          </div>
+
+    </div>
+    <div>
+        
+        
+        
+    </div>
+    <table class="table table-striped border mt-1">
+        <thead>
+            <th>Sno</th>
+            <th [appSort]="data" data-order="desc" data-name="_id" scope="col">{{field}} 
+                 <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th [appSort]="data" data-order="desc" data-name="count" scope="col">{{type|uppercase}}
+                <i class="fa fa-sort" aria-hidden="true"></i>
+            </th>
+            <th [appSort]="data" data-order="desc" data-name="ans" scope="col">Ans
+                <i class="fa fa-sort" aria-hidden="true"></i>
+            </th>
+            <th [appSort]="data" data-order="desc" data-name="per" scope="col" >percent
+                <i class="fa fa-sort" aria-hidden="true"></i>
+            </th>
+            
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of data; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{x._id}}</td>
+                <td>{{x.count}}</td>
+                <td>
+                    <a [ngClass]="showBtn(x.ans, x._id)" 
+                        [routerLink] = "['/ansList/',field,x._id,type]"> {{x.ans}}   
+                    </a>
+                </td> 
+                <td>
+                    <!-- <div class="progress">
+                        <div class="progress-bar progress-bar-striped active text-nowrap"
+                         role="progressbar" 
+                        aria-valuemin="10" aria-valuemax="100" [style.width]="x.per+'%'">
+                          {{x.per}}%
+                        </div>
+                      </div> -->
+                      <div class="prg-bar progress-bar-striped progress-bar-animated">
+                        <div class="text-nowrap bgp" [style.width]="x.per+'%'">
+                                {{x.per}}%
+                          </div>
+                      </div>
+                </td>
+               
+                         
+            </tr>
+        </tbody>
+
+    </table>
+</div>

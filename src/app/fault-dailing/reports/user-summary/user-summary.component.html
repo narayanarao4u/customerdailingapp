@@ -1,0 +1,27 @@
+<div class="container" *ngIf="data">
+    <dailing-option (optionClick)=handleChange($event)></dailing-option>
+    <div><span class="h5">{{type | uppercase}} Answered :{{totalAns()}} </span></div>
+    <div class="row bg-secondary text-white">
+        <div class="col-1">Top</div>
+        <div class="col-8">Name</div>
+        <div class="col-1"></div>
+        <div class="col-2 text-center">Dailed</div>
+    </div>
+    <div class="row" *ngFor="let x of data; let i = index">
+        <div class="col-1">{{i+1}}</div>
+        <div class="col-8">
+             {{x._id}} 
+        </div>
+        <div class="col-1">
+            <i class="fa fa-star fa-spin" *ngIf="i+1<=10"></i>
+        </div>
+        <div class="col-2">
+            <!-- <meter min="0" [max]="totalAns()" [value]="x.count"></meter> -->
+            <a class="btn btn-info btn-block"   [routerLink] = "['/ansList/User/',x._id,type]">    
+                 {{x.count}}
+            </a>
+            
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+    <!-- <div class="row">
+        <div class="col-1">Sno</div>
+        <div class="col-5">{{field}}</div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col">Faults</div>
+                <div class="col">OG Bar</div>
+                <div class="col">SUS NP</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row" *ngFor="let x of data; let i = index">
+        <div class="col-1">{{i+1}}</div>       
+        <div class="col-5">{{x._id}}</div>
+        <div class="col-6">
+            <ans [data]="x.items"></ans>
+        </div>        
+    </div> -->
+
+    <table class="table table-striped border mt-1 table-condensed"  id="excel-table">
+        <thead>
+            <th>Sno</th>
+            <th [appSort]="data" data-order="desc" data-name="_id" scope="col">
+                {{field |uppercase}} <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th [appSort]="data" data-order="desc" data-name="fault" scope="col">
+                Faults <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th [appSort]="data" data-order="desc" data-name="ogbar" scope="col">
+                OG BAR <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th [appSort]="data" data-order="desc" data-name="susnp" scope="col">
+                SUS NP <i class="fa fa-sort" aria-hidden="true"></i></th>
+            <th> Total 
+              <a  style="cursor: pointer" (click)="exportexcel()">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+              </a>
+            </th>                
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of data; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{x._id}}</td>
+                <td>{{x?.fault}}</td>
+                <td>{{x?.ogbar}}</td>
+                <td>{{x?.susnp}}</td>
+                <td>
+                    <a class="btn btn-info btn-block"  
+                        [routerLink] = "['/ansList/',field,x._id,'fault']"> 
+                    {{total(x)}} 
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  
+
+</div>

@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row bg-info">
+        <div class="h4 col-md">IVRS Compalints</div>
+        <div class= "h4 col-md"  >
+            USER : {{userData?.user1}}, {{userData?.desgn}}  
+         </div>
+    </div>
+    
+
+    <div class="bctrow3" *ngIf="customer" >
+        <div>
+            <label class="form-control">{{customer?.Phone | hideSDTCode}}</label> 
+            </div>
+
+        <div>
+            <div class="form-group">
+                <input type="text" class="form-control" 
+                placeholder="Feed back" 
+                id="user1" name="user1" [(ngModel)]="customer.feedback">
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-success btn-block "  
+                 (click)="submit()" >                 
+                <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="row bg-secondary text-white"  *ngIf="daillist">                
+        <div class="col-4 "> Pending: {{daillist.length}} </div>
+        <div class="col-8 input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-search fa-2x fa-fw"></i></span>
+            <input class="form-control" type="text" placeholder="Search" [(ngModel)]="term">
+          </div>
+    </div> 
+    <div class="bctrow3" *ngFor="let x of daillist | filter:term">
+ 
+                
+        <div class="pl-3">{{x.Phone|hideSDTCode}}</div>
+        <div class="pl-3">
+           {{x.ExCode}} - {{x. complaint}}
+        </div>
+        <div class="bctrow2">
+            <a href="tel:{{x.Phone}}" class="btn" 
+            (click)="loaddata(x)"> 
+            
+             <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-2x"></i>
+                <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+              </span>
+              
+            </a>
+            <a href="tel:{{x.MOBILE_NO}}" class="btn" 
+            (click)="loaddata(x)"> 
+            
+             <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-2x"></i>
+                <i class="fa fa-mobile fa-stack-1x fa-inverse"></i>
+              </span>
+              
+            </a>
+        </div>
+            
+          
+
+    </div>
+        
+</div>

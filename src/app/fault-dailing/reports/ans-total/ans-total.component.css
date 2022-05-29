@@ -1,0 +1,41 @@
+#tb1 {
+    width:100%;
+}
+
+th i {
+    cursor: pointer;
+}
+thead {
+    position:sticky;
+    top:0;
+    background-color: #dee2e6;
+}
+
+.prg-bar{
+    width: 100%;    
+    display: flex;        
+    border-radius: 5px;
+    background-color: lightblue;
+    color: #232332;
+}
+
+.bgp {
+   
+    background-color: #43dfc2 !important;
+    font-weight: bolder;
+    text-align: center;
+}
+.brp {
+   
+    background-color: #df6243 !important;
+    font-weight: bolder;
+    text-align: center;
+   
+}
+
+
+.bct2row{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 5px 0;
+}

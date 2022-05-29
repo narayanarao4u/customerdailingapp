@@ -1,0 +1,30 @@
+.altercolor>:nth-child(odd){
+  background-color: #dcdcdc;
+  border-radius: 15px;
+}
+
+.altercolor a{
+    text-decoration: none;
+    
+    
+  }
+
+  .bctpadding {
+    padding-top: 5px;
+  } 
+@media (max-width : 765px) {
+    .altercolor {
+        display: grid;
+        grid-template-columns: 1fr 1fr;        
+    } 
+    .altercolor>div {
+        padding-left: 20px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black ;
+        border-radius: 5px;
+        margin: 5px;
+      
+    } 
+    
+}

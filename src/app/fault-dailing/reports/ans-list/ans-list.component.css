@@ -1,0 +1,41 @@
+th{
+    position:sticky;
+    top:0;
+    background-image:url('/assets/images/bgBlack.png');
+    color: whitesmoke;
+
+    
+}
+
+table{
+    position: relative;
+}
+
+.remarks {
+    background-color: rgb(231, 233, 122);
+    font-weight: bolder;
+}
+
+.green {
+    background: rgb(156, 226, 156);
+}
+
+.red {
+    background: rgb(236, 155, 155);
+}
+
+.blue {
+    background: rgb(163, 163, 233);
+}
+
+.grey {
+    background: rgb(128, 128, 128);
+}
+
+.bct-cirlce{
+    background: white;
+    color: black;
+    padding: 0 6px;
+    border-radius: 50%;
+   
+}

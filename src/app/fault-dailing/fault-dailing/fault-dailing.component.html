@@ -1,0 +1,122 @@
+<div class="container">
+    <!-- <app-user *ngIf="showuserdata"></app-user> -->
+    <div>
+        <div class="userDetails"  >
+           <label for=""> {{userData?.hrno}} {{userData?.user1}}, {{userData?.desgn}},  </label>
+           <!-- <label for=""> Exchg:({{userData?.sdca}})</label>   -->
+           
+        </div>
+        <dailing-option (optionClick)=handleChange($event)></dailing-option>
+        <div class="form-group row">
+            <label for="desgn" class="col-3 col-form-label">Exchange</label>
+            <div class="col-9">
+                <select class="form-control" [(ngModel)]="exchgSelected"
+                    (change)="exchgSelect()">
+                    <option *ngFor="let x of exCodes" [value]="x">{{x}}</option>
+                </select>
+            </div>
+
+        </div>
+        <div *ngIf="daillist">
+
+            <!---DataEntry-->
+            <ng-template #content let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Customer Feedback</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- form -->
+                 <!---DataEntry-->
+            <div class="dataEntry" *ngIf="customer">
+                <div class="row">
+                    <div class="col-sm text-center">{{customer?.PHONE_NO}}</div>
+                </div>
+                <div class="row">                    
+                        <label for="" class="col-sm-2 control-label">Remarks:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" [(ngModel)]="customer.remarks" name="remarks">
+                                <option *ngFor="let x of remarksopt[type]" [value]="x">{{x}}</option>
+                            </select>                       
+                        </div>      
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2">Feedback</div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" 
+                        placeholder="Feed back" 
+                        id="user1" name="user1" [(ngModel)]="customer.feedback">
+                   </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-success btn-block "  
+                             (click)="submit()" > 
+                            Save
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+               -->
+            </div>
+             <!---DataEntry--> 
+                <!-- form -->
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark btn-success" (click)="modal.close('Save click')">Save</button>
+            </div>
+            </ng-template>
+            
+            <!---DataEntry--> 
+            <div class="row bg-secondary text-white" style="padding: 15px; margin-bottom: 5px;">
+                
+                <div class="col-4"> {{type | uppercase}} Nos : {{daillist.length}} </div>
+                <div class="col-8">  {{exgPhone.name}}, SDE-{{exgPhone.sde}} , {{exgPhone.mobile}}</div>
+               
+            </div>          
+                
+                <div class="shade" *ngFor="let x of daillist">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {{x.CUSTOMER_NAME}}
+                        </div>
+                   
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">{{x.PHONE_NO}}</div>
+                        <div class="col-sm-3" *ngIf="type === 'susnp' ||type === 'ogbar' ">
+                            Rs. {{x.OUTSTANDING_AMT}} /-
+                        </div>
+                        <div class="col-sm-3" *ngIf="type === 'fault'">
+                            {{x.OUTSTANDING_AMT}}                           
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a href="tel:{{x.PHONE_NO}}" class="btn btn-success btn-block" 
+                            (click)="loaddata(x,content)"> 
+                            <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                        
+                            </a>
+                        </div>
+                        <div class="col-sm-3 ">                            
+                            <a href="tel:{{x.MOBILE_NO}}" class="btn btn-info btn-block align-middle" 
+                            (click)="loaddata(x,content)"> 
+                            <i class="fa fa-mobile fa-2x" aria-hidden="true"></i> {{x.MOBILE_NO}}                     
+                            </a>
+                        </div>
+                    </div>
+    
+                </div>
+                    
+            
+
+        </div>
+    </div>
+  
+
+</div>

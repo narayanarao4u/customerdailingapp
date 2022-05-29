@@ -1,0 +1,31 @@
+<div class="container">
+    
+    <div class="form-group row">
+        <div class="col-12">Anction Taken on feedback </div>
+        <div class="border border-info rounded p-2 d-block col-12">
+            {{row?.PHONE_NO}} :{{row?.remarks}} ** {{row?.feedback}}
+        </div>
+        
+      </div>
+    <div class="form-group row">   
+        <textarea class="form-control col-sm-10" rows="3" placeholder="Enter Action Taken" [(ngModel)]="actionTaken"></textarea>
+        <button class="btn btn-primary col-sm-2"(click)="submit()" > 
+          Save   <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+      </div>
+ 
+    <hr>
+   
+
+    <div *ngFor="let x of data"> 
+        <div class="row shade" >
+          <div class="col-sm-1">{{x?.PHONE_NO | hideSDTCode }}</div>
+          <div class="col-sm-1">{{x?.EXCHANGE_CODE}}</div>
+          <div class="col-sm-2 text-sm-center">{{x?.updatedAt| dateTime:'dd-MM-yy'}}</div>
+          <div class="col-sm-2 text-sm-end">{{x?.type|uppercase}}</div>
+          <div class="col-sm-6">{{x?.remarks}}:{{x.feedback}}</div>
+        </div>
+          <action-row *ngIf="x?.actionTaken" [dataRow]="x?.actionTaken" ></action-row>       
+        
+
+    </div>
+</div>

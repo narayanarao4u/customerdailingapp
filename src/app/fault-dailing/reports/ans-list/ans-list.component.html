@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 h4">
+            <span> {{field |uppercase}} : </span> 
+             : <span>{{Code}}</span>
+             : <span>{{data?.length}}</span>
+         </div>
+         <div class="col-4">
+            <a  class="btn btn-success" style="cursor: pointer" (click)="exportexcel()">
+                <i class="fa fa-file-excel-o" aria-hidden="true"></i>  Excel Download <i class="fa fa-cloud-download" aria-hidden="true"></i>
+              </a>
+         </div>
+    </div>
+
+    <div class="table-responsive">
+    <table class="table table-striped  table-hover table-sm" id="excel-table">
+        <thead>
+            <tr>
+                <th>Phone</th>
+                <!-- <th *ngIf="field!='User'">User</th> -->
+                <th>ExCode</th>
+                <th *ngIf='field !="dt"'>DateTime</th>
+                <th *ngIf='field ==="dt"'>User</th>
+                <th colspan="3">Remarks</th>    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of data">
+                <td> {{x?.PHONE_NO | hideSDTCode }}  </td>
+                <!-- <td *ngIf="field!='User'">
+                    <span (click)="triggerReadMore()">{{x?.User | readMore:20:showAll}} </span>
+                </td> -->
+                <td>{{x?.EXCHANGE_CODE}}</td>
+                <td *ngIf='field !="dt"'  nowrap>{{x?.updatedAt | dateTime}}</td>
+                <td *ngIf='field ==="dt"'  nowrap>
+                    <a [routerLink] = "['/ansList/','User',x?.User,'fault']">
+                        {{x?.User }}
+                    </a>
+                </td>
+                <td [class]="colorR[x?.remarks]" nowrap>{{x?.remarks }}</td> 
+                <td> 
+                    <span (click)="triggerReadMore()">
+                     {{x?.type}} :   
+                     {{x?.feedback| readMore:50:showAll}}
+                    </span>
+                </td>
+                <td nowrap>                     
+                    <a class="btn  btn-block" [class.btn-info] = "!x?.actionTaken"
+                    [class.btn-secondary] = "x?.actionTaken"
+                    [routerLink] = "['/faultDailing/actionTaken',x.PHONE_NO,x._id]"> 
+                        Action <span [class.bct-cirlce]="x?.actionTaken" > {{x?.actionTaken?.length}} </span> 
+                    </a>
+                    <!-- faultDailing/actionTaken/:PHONE_NO/:id -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-2">Phone</div>
+        <div class="col-4" *ngIf="field!='User'">User</div>
+        <div class="col-4" *ngIf="field ==='User'">ExCode - DateTime</div>
+        <div class="col-6">Remarks</div>    
+    </div>
+
+
+    <div class="row" *ngFor="let x of data">
+        <div class="col-2"> {{x?.Phone | hideSDTCode}}</div>
+        <div class="col-4" *ngIf="field!='User'">{{x?.User}}</div>
+        <div class="col-4" *ngIf="field ==='User'">{{x?.ExCode}} - {{x?.updatedAt | dateTime}}</div>
+        <div class="col-6"><span class="remarks">{{x?.remarks}} : </span> {{x?.feedback}}</div>
+    </div>  -->
+</div>

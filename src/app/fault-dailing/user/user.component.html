@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="text-center h4">User Registration</div> 
+    <form #userRegt="ngForm" (ngSubmit)="regt(userRegt.value)">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="hrno">HRNO</label>
+                <input type="text" class="form-control" id="hrno" name="hrno" 
+                placeholder="HRNO"
+                [(ngModel)]="hrno">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="user1">Name</label>
+                <input type="text" class="form-control" id="user1" name="user1" [(ngModel)]="user1">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="desgn">Designation</label>
+                <select name="desgn" id="desgn" class="form-control" 
+                    name="desgn" [(ngModel)]="desgn" (change)= "selectionchange($event)">
+                    <option>PGM</option>
+                    <option>DGM</option>
+                    <option>AGM</option>
+                    <option>DE</option>
+                    <option>SDE</option>
+                    <option>JTO</option>
+                    <option>JE</option>
+                    <option disabled>---</option>
+                    <option>BBC</option>
+                    <option>PS</option>
+                    <option disabled>---</option>
+                    <option>IFA</option>
+                    <option>CAO</option>
+                    <option>AO</option>
+                    <option>JAO</option>
+                    <option disabled>---</option>
+                    <option>IVRS</option>
+                    
+                </select>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="bctrow" [hidden]="hideExchg">
+        <div *ngFor="let x of sdes" class="form-check">
+          <input type="checkbox" [name]="x"  [id]="x"
+             (change)="checkChange(x)" class="form-check-input"  >
+          <label class="form-check-label" [for]="x">{{x}}</label>
+            
+        </div>
+      </div>
+      <div class="row">
+          <div class="col">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+          <div class="col">
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+      </div>
+      
+    </form>
+
+</div>
