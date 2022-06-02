@@ -9,43 +9,53 @@
   <div class="collapse navbar-collapse" id="navbarmenu">
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['faultDailing']" data-toggle="collapse" data-target=".navbar-collapse.show"
+      <a class="nav-link" [routerLink]="['faultDailing']"
         routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">Home</a>
-    </li> 
+    </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['user']" data-toggle="collapse" data-target=".navbar-collapse.show"> Register  </a>
-     </li> 
-    <li class="nav-item"><a class="nav-link" [routerLink]="['telephone']" data-toggle="collapse" routerLinkActive="active">Service Directory  </a></li>
+      <a class="nav-link" [routerLink]="['user']" > Register  </a>
+     </li>
+
     <!-- <li class="nav-item"><a class="nav-link" [routerLink]="['custDailing']"> Customer Dailing </a></li>
     <li class="nav-item"><a class="nav-link" [routerLink]="['asset']"> IT Assests  </a></li>
     <li class="nav-item"><a class="nav-link" [routerLink]="['email']"> E-Office  </a></li>
-       <a class="nav-link" [routerLink]="['faultDailing/UserSummary']" data-toggle="collapse" data-target=".navbar-collapse.show"
+       <a class="nav-link" [routerLink]="['faultDailing/UserSummary']"
       routerLinkActive="active">User Summary</a>
   -->
-    
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/User']" data-toggle="collapse" data-target=".navbar-collapse.show"
-      routerLinkActive="active">User Summary</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/EXCHANGE_CODE']" data-toggle="collapse" data-target=".navbar-collapse.show"
-      routerLinkActive="active">Exchange Summary</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/SDECODE']" data-toggle="collapse" data-target=".navbar-collapse.show"
-      routerLinkActive="active">SDE Summary</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/dt']" data-toggle="collapse" data-target=".navbar-collapse.show"
-      routerLinkActive="active">Daily Summary</a>
-    </li> 
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['faultDailing/ansTotal2/remarks']" data-toggle="collapse" data-target=".navbar-collapse.show"
-      routerLinkActive="active">Remarks Summary</a>
-    </li> 
 
 
-    
+    <li class="nav-item dropdown">
+      <span class="nav-link dropdown-toggle"   role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+        Reports
+      </span>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal2/User']"  routerLinkActive="active">User Summary</a>
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal2/EXCHANGE_CODE']" routerLinkActive="active">Exchange Summary</a>
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal2/SDECODE']" routerLinkActive="active">SDE Summary</a>
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal2/dt']" routerLinkActive="active">Daily Summary</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal2/remarks']" routerLinkActive="active">Remarks Summary</a>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+      <span class="nav-link dropdown-toggle"   role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+        Reports Old
+      </span>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal/User']"  routerLinkActive="active">User Summary</a>
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal/EXCHANGE_CODE']" routerLinkActive="active">Exchange Summary</a>
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal/SDECODE']" routerLinkActive="active">SDE Summary</a>
+        <a class="dropdown-item" [routerLink]="['faultDailing/ansTotal/dt']" routerLinkActive="active">Daily Summary</a>
+      </div>
+    </li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="['telephone']"  routerLinkActive="active">Service Directory  </a></li>
+
+
+
+
   </ul>
   </div>
 
