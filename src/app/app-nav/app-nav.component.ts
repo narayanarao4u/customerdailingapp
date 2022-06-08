@@ -11,7 +11,12 @@ export class AppNavComponent implements OnInit {
 
   ngOnInit(): void {
     $(document).ready(function () {
-      console.log('Nav Fired');
+      //data-toggle="collapse" data-target=".navbar-collapse.show"
+      $('a').each(function () {
+
+       $(this).attr("data-toggle", "collapse");
+       $(this).attr("data-target", ".navbar-collapse.show");
+      })
     })
   }
 

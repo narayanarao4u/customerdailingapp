@@ -26,19 +26,19 @@ export class FaultdataService {
 
   getExCode(data:any,type,desgn){
     let url = `http://${this.link}:${this.port}/api-faultData/distExch/${type}/${desgn}`;
-    return this.http.post(url,data);
+    return this.http.post(url, data);
   }
 
-  getdaillist(ExCode:any,type,desgn){
+  getdaillist(ExCode: any, type, desgn){
     let url = `http://${this.link}:${this.port}/api-faultData/daillist/${ExCode}/${type}/${desgn}`;
     return this.http.get(url);
   }
-  getdaillistIVRS(ExCode:any,type){
+  getdaillistIVRS(ExCode:any, type){
     let url = `http://${this.link}:${this.port}/api-faultData/daillist/${ExCode}/${type}`;
     return this.http.get(url);
   }
 
-  getansList(field:any, Code:any, type:any){
+  getansList(field: any, Code: any, type:any){
     let url = `http://${this.link}:${this.port}/api-faultData/ansList/${field}/${Code}/${type}`;
     return this.http.get(url);
   }
