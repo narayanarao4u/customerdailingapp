@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FaultdataService {
-  //link = window.location.hostname;
-  link ='117.239.146.106';
-  port = '3001'
+  link = window.location.hostname;
+  //link ='117.239.146.106';
+  port = '3001';
   // link ='bsnlvm.com';
 
   constructor(private http:HttpClient) { }

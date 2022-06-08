@@ -69,7 +69,7 @@ hideExchg=true;
   }
 
   hideExchg1(desgn){
-    let ACDesgn = ['JAO', 'AO', 'CAO', 'IFA','IVRS','PS'];
+    let ACDesgn = ['JAO', 'ATT'  ,'AO', 'CAO', 'IFA','IVRS','PS'];
     let ifAC =ACDesgn.findIndex(e => e===desgn);
       if(ifAC>=0){
         this.hideExchg = true;        

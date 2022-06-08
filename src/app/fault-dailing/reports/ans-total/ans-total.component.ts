@@ -31,7 +31,7 @@ export class AnsTotalComponent implements OnInit{
     getData(field){
         this.field = field;
         return this.ds.getansweredTotal(field, this.type).subscribe((res) => {
-            this.data = res.data;
+            this.data = res['data'];
 
             // adding percentage to data
             this.data.forEach(function(e) {
