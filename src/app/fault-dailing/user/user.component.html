@@ -6,8 +6,7 @@
             <div class="form-group">
                 <label for="hrno">HRNO</label>
                 <input type="text" class="form-control" id="hrno" name="hrno" 
-                placeholder="HRNO"
-                [(ngModel)]="hrno">
+                placeholder="HRNO" [(ngModel)]="hrno"  (keyup) = "onKeyup($event)">
             </div>
         </div>
         <div class="col-md-6">
@@ -21,26 +20,13 @@
                 <label for="desgn">Designation</label>
                 <select name="desgn" id="desgn" class="form-control" 
                     name="desgn" [(ngModel)]="desgn" (change)= "selectionchange($event)">
-                    <option>PGM</option>
-                    <option>DGM</option>
-                    <option>AGM</option>
-                    <option>DE</option>
-                    <option>SDE</option>
-                    <option>JTO</option>
-                    <option>JE</option>
-                    <option>TT</option>
-                    <option>ATT</option>
+                    <option *ngFor="let d of desgnlist">{{d}}</option>
                     <option disabled>---</option>
-                    <option>BBC</option>
-                    <option>PS</option>
-                    <option disabled>---</option>
-                    <option>IFA</option>
-                    <option>CAO</option>
-                    <option>AO</option>
-                    <option>JAO</option>
+                    <option>BBC</option>           
                     <option disabled>---</option>
                     <option>IVRS</option>
-                    
+                    <option disabled>---</option>
+                    <option>Demo</option>                    
                 </select>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'src/app/common/toastr.service';
+import { ToastrService } from '../../common/toastr.service';
 import { FaultdataService } from '../faultdata.service';
 
 @Component({
@@ -14,6 +14,7 @@ user1 ="";
 desgn ="";
 hrno="";
 sdca=[];
+desgnlist = [];
 hideExchg=true;
 
   constructor(private ds:FaultdataService, 
@@ -30,8 +31,14 @@ hideExchg=true;
       this.hideExchg1(this.desgn)
     }
 
-    return this.ds.getFaultDataSDE().subscribe((res) => {      
+    this.ds.getFaultDataSDE().subscribe((res) => {      
       this.sdes = res["data"];
+    })
+
+    this.ds.getLink("api-user/userdesgn").subscribe((res) => {      
+      this.desgnlist = res["data"];
+     
+      
     })
   }
 
@@ -46,12 +53,9 @@ hideExchg=true;
     } else if(this.sdca.length == 0 && !this.hideExchg){
       this.toastr.warning("Select Exchange")
     } else {
-      frmData['sdca'] = this.sdca;
-     
-      
+      frmData['sdca'] = this.sdca;           
       localStorage.setItem('userData', JSON.stringify(frmData));
-      this.router.navigate(['/faultDailing'])
-      
+      this.router.navigate(['/faultDailing'])      
       
     }
 
@@ -79,12 +83,27 @@ hideExchg=true;
       console.log("false",ifAC,  this.hideExchg);
     }
   }
-  selectionchange(e){
-    
+  selectionchange(e){    
     let desgn = e.target.value;
     this.hideExchg1(desgn)
-    
-    
+
+  }
+
+  onKeyup(e) {
+    let hrmsno = e.target.value;
+    if((hrmsno.length==9 && (+hrmsno[0]==1 || +hrmsno[0]==2) )||(hrmsno.length==8 && !(+hrmsno[0]==1 || +hrmsno[0]==2) )){
+      this.ds.getUserData(hrmsno).subscribe((res)=>{
+        let data = res['data']
+        console.log(!!data);
+        
+        if(data) {
+          this.user1 = data['User'];
+          this.desgn = data['desgn'];
+          this.hideExchg1(this.desgn)
+        }
+      })
+
+    }   
 
   }
 

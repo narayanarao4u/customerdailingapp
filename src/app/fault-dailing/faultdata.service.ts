@@ -33,6 +33,7 @@ export class FaultdataService {
     let url = `http://${this.link}:${this.port}/api-faultData/daillist/${ExCode}/${type}/${desgn}`;
     return this.http.get(url);
   }
+
   getdaillistIVRS(ExCode:any, type){
     let url = `http://${this.link}:${this.port}/api-faultData/daillist/${ExCode}/${type}`;
     return this.http.get(url);
@@ -63,6 +64,12 @@ export class FaultdataService {
     let url = `http://${this.link}:${this.port}/api-tele/exch_ctrl_phone`;
     return this.http.get(url);
   }
+
+  getUserData(hrno){
+    let url = `http://${this.link}:${this.port}/api-user/user/${hrno}`;
+    return this.http.get(url);
+  }
+
 
   saveData(newData){
     var returndata;
