@@ -71,6 +71,19 @@ export class FaultdataService {
   }
 
 
+  saveUser(newData){
+    var returndata;
+    let url = `http://${this.link}:${this.port}/api-user/user/`;
+
+    if(newData._id){
+      returndata = this.http.put(url, newData);
+    }else{
+      returndata = this.http.post(url, newData);
+    }
+
+    return returndata;
+  }
+
   saveData(newData){
     var returndata;
     let url = `http://${this.link}:${this.port}/api-faultData/`;

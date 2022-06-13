@@ -30,6 +30,7 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { ActionTakenComponent } from './fault-dailing/action-taken/action-taken.component';
+import { UserEditComponent } from './fault-dailing/user/userEdit.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ActionTakenComponent } from './fault-dailing/action-taken/action-taken.
     AnsTotal2SubComponent,
     SortDirective,
     UserSummaryComponent,
+    UserEditComponent,
     AnsListComponent,   
     Error404Component,
     IvrscompalintsComponent,

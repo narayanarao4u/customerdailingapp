@@ -55,5 +55,5 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "postinstall": "ngcc"
+  "postinstall": "ngcc --properties es5 browser module main --first-only"
 }

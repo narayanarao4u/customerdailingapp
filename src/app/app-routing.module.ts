@@ -8,6 +8,7 @@ import { UserComponent, FaultDailingComponent, ActionTakenComponent,
    AnsListComponent, IvrscompalintsComponent } from './fault-dailing/index';
 
 import { UserSummaryComponent } from './fault-dailing/reports/user-summary/user-summary.component';
+import { UserEditComponent } from './fault-dailing/user/userEdit.component';
 import { Error404Component } from './share/errors/error404/error404.component';
 
 
@@ -24,6 +25,8 @@ const routes: Routes = [
   // {path:'custdailList/:phone',component:ShowDataComponent},
   {path:'ansList/:field/:Code/:type',component:AnsListComponent},
   {path:'user',component:UserComponent},
+  {path:'user/edit',component:UserEditComponent},
+
   {path:'faultDailing',component:FaultDailingComponent},
   {path:'ivrscomplaints',component:IvrscompalintsComponent},
   {path:'faultDailing/ansTotal/:field',component:AnsTotalComponent},

@@ -39,7 +39,6 @@ export class IpdataComponent implements OnInit {
 
   edit(dataRow:ipData){
     this.dataRow = dataRow;
-
   }
 
   ngOnInit(): void {

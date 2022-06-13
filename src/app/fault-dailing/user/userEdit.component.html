@@ -1,0 +1,43 @@
+<div class="container">
+    <form (submit)="addData()" ngNativeValidate>
+        <div class="bctrow sticky"   *ngIf="dataRow">
+            <div class="form-group  text-center font-weight-bold">
+                <label for="hrno">HRNo</label> 
+                <input type="text" class="form-control" name="hrno" [(ngModel)]="dataRow.hrno" 
+                     required>
+            </div>
+            <div class="form-group  text-center font-weight-bold">
+                <label for="User">Name</label> 
+                <input type="text" class="form-control" name="User" [(ngModel)]="dataRow.User" 
+                     required>
+            </div>
+            <div class="form-group  text-center font-weight-bold">
+                <label for="desgn">Desgn</label> 
+                <input type="text" class="form-control" name="desgn" [(ngModel)]="dataRow.desgn" 
+                     required>
+            </div>
+            <div class="form-group text-center" style="padding:16px 0 ;">               
+                <input type="hidden" name="_id"  value="{{dataRow._id}}">
+                <button class="btn btn-success"><i class="fa fa-save"> </i> {{dataRow._id ? "Update":"Save"}}</button>
+            </div>
+             
+        </div>
+    </form>
+    <div class="bctrow hover" *ngFor="let x of dataList"> 
+        <div class="text-center">
+             {{x.hrno}}
+        </div>
+        <div>
+            {{x.User}}
+        </div>
+        <div>
+            {{x.desgn}}
+        </div>        
+                
+        <div>
+            <button class="btn btn-primary" (click)="edit(x)"> <i class="fa fa-edit"></i>  Edit</button>
+        </div>
+         
+    </div>
+
+</div>

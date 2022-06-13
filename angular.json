@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ItAssets": {
+    "customerDailingApp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -76,7 +76,8 @@
             "production": {
               "browserTarget": "ItAssets:build:production"
             }
-          }
+          },
+          "aot": true
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
