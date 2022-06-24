@@ -1,9 +1,9 @@
 {
-  "name": "customer-dailing",
+  "name": "customerdailingapp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --source-map=false",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

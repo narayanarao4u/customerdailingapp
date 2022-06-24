@@ -1,5 +1,10 @@
 <div class="container">
-    <dailing-option (optionClick)=handleChange($event)></dailing-option>
+    <div class="bct2row">
+        <date-option (btnclick)="btnClicked($event)"></date-option>
+        <dailing-option (optionClick)=handleChange($event)></dailing-option>
+        
+    </div>
+    <!-- <dailing-option (optionClick)=handleChange($event)></dailing-option> -->
     <div class="bct2row">
         <div>
             <span class="h5">{{type|uppercase}} ({{summary.total}}) </span>

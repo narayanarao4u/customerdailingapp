@@ -52,7 +52,6 @@ export class AnsTotalComponent implements OnInit{
 
     showBtn(x, field){
         //  console.log(field);
-
         if (x > 0 || field === 'remarks') {
         return ['btn', 'btn-info', 'btn-block'];
         }
@@ -64,19 +63,22 @@ export class AnsTotalComponent implements OnInit{
     handleChange($event){
         this.type = $event;
         this.getData(this.field);
-      }
+    }
 
+    btnClicked(data){
+      console.log(data);
+      
+    }
 
     ngOnInit(): void {
-
         this.route.params.subscribe(routeParams => {
             this.getData(routeParams.field);
         });
 
         $(document).ready(function(){
-            console.log("Hello from jQuery!");
-            // $('.h4').css('background-color', 'yellow');
-            // $('[data-name="ans"]').trigger( 'click' );
+           console.log("Hello from jQuery!");
+           // $('.h4').css('background-color', 'yellow');
+           // $('[data-name="ans"]').trigger( 'click' );
           });
 
        /* (function ($) {

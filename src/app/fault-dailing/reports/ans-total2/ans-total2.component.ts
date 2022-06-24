@@ -52,7 +52,11 @@ export class AnsTotal2Component implements OnInit {
      }
     return result;
   }
+  btnClicked(data){
+    console.log(data);
+    
 
+  }
 
   exportexcel(): void 
     {

@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -6,11 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { ToastrService } from './common/toastr.service';
-import { 
+import {
   AnsTotalComponent,
-  UserComponent,  
+  UserComponent,
   AnsListComponent,
-  FaultDailingComponent ,
+  FaultDailingComponent,
   IvrscompalintsComponent,
   UserSummaryComponent,
   DailingOptionComponent,
@@ -19,6 +18,11 @@ import {
   AnsTotal2SubComponent,
   ActionRowComponent
 } from './fault-dailing/index';
+
+
+import { ActionTakenComponent } from './fault-dailing/action-taken/action-taken.component';
+import { UserEditComponent } from './fault-dailing/user/userEdit.component';
+import { DateOptionComponent } from './fault-dailing/dailing-option/date-option.component';
 
 import { SortDirective } from './directive/sort.directive';
 import { HideSDTCodePipe } from './pipes/hideSTDCode.pipe';
@@ -29,9 +33,6 @@ import { ReadMorePipe } from './pipes/readMore.pipe';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { ActionTakenComponent } from './fault-dailing/action-taken/action-taken.component';
-import { UserEditComponent } from './fault-dailing/user/userEdit.component';
-
 
 @NgModule({
   declarations: [
@@ -45,10 +46,11 @@ import { UserEditComponent } from './fault-dailing/user/userEdit.component';
     SortDirective,
     UserSummaryComponent,
     UserEditComponent,
-    AnsListComponent,   
+    AnsListComponent,
     Error404Component,
     IvrscompalintsComponent,
     DailingOptionComponent,
+    DateOptionComponent,
     HideSDTCodePipe,
     DateTimePipe,
     ReadMorePipe,
@@ -58,7 +60,7 @@ import { UserEditComponent } from './fault-dailing/user/userEdit.component';
   imports: [
     CommonModule,
     BrowserModule,
-    FormsModule,   
+    FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
     AppRoutingModule,

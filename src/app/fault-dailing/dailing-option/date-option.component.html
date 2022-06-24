@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="col-5">
+        <input type="date" name="dt1" id="dt1"  class="form-control" [(ngModel)]="dt1" (change)="testfire()">
+    </div>
+    <div class="col-5">
+        <input type="date" name="dt2" id="dt2"  class="form-control" [(ngModel)]="dt2" [min]="dt1">
+    </div>
+    <div class="col-2">
+        <button class="btn btn-success" (click)="handleclick($event)">Go</button>
+    </div>
+    
+
+
+</div>

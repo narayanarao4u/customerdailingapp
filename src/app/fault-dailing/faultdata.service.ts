@@ -45,7 +45,6 @@ export class FaultdataService {
   }
 
   getansweredTotal(field, type){
-
     let url = `http://${this.link}:${this.port}/api-faultData/answeredTotal/${field}/${type}`;
     return this.http.get(url);
   }

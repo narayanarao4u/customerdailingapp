@@ -14,9 +14,7 @@ export class AnsTotal2SubComponent implements OnInit {
     item:any;
     @Input() data:any;
 
-    pivot1(data){
-        console.log(data);
-        
+    pivot1(data){               
       let r = {}  
       data.forEach((e) => {
         r[e.type] = e.ans          
