@@ -22,10 +22,13 @@
     <table class="table table-striped border mt-1 table-condensed"  id="excel-table">
         <thead>
             <th>Sno</th>
+            
             <th [appSort]="data" data-order="desc" data-name="_id" scope="col">
                 {{field |uppercase}} <i class="fa fa-sort" aria-hidden="true"></i></th>
             <th [appSort]="data" data-order="desc" data-name="fault" scope="col">
-                Faults <i class="fa fa-sort" aria-hidden="true"></i></th>
+                Cleared Faults <i class="fa fa-sort" aria-hidden="true"></i></th>    
+            <th [appSort]="data" data-order="desc" data-name="fault" scope="col">
+                Repeat Faults <i class="fa fa-sort" aria-hidden="true"></i></th>
             <th [appSort]="data" data-order="desc" data-name="ogbar" scope="col">
                 OG BAR <i class="fa fa-sort" aria-hidden="true"></i></th>
             <th [appSort]="data" data-order="desc" data-name="susnp" scope="col">
@@ -39,7 +42,9 @@
         <tbody>
             <tr *ngFor="let x of data; let i = index">
                 <td>{{i+1}}</td>
-                <td>{{x._id}}</td>
+                <td *ngIf = "field != 'hrno'">{{x._id}}</td>
+                <td *ngIf = "field === 'hrno'">{{x?.user_data[0]?.User}} <br>{{x?.user_data[0]?.desgn}} {{x._id}}   </td>
+                <td>{{x?.Cfault}}</td>
                 <td>{{x?.fault}}</td>
                 <td>{{x?.ogbar}}</td>
                 <td>{{x?.susnp}}</td>

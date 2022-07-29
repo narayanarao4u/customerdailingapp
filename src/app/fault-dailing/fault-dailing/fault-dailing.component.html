@@ -37,8 +37,8 @@
                 <div class="row">                    
                         <label for="" class="col-sm-2 control-label">Remarks:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" [(ngModel)]="customer.remarks" name="remarks">
-                                <option *ngFor="let x of remarksopt[type]" [value]="x">{{x}}</option>
+                            <select class="form-control" [(ngModel)]="customer.remarks" name="remarks" size="{{remarksopt[type].length + 1}}">
+                                <option *ngFor="let x of remarksopt[type]" [value]="x"  [class]="colorR[x]">{{x}}</option>
                             </select>                       
                         </div>      
                 </div>
@@ -68,16 +68,17 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark btn-success" (click)="modal.close('Save click')">Save</button>
+                <button type="button" class="btn btn-outline-dark btn-success" (click)="modal.close('save')">
+                    Save</button>
+                <button type="button" class="btn btn-outline-dark btn-warning" (click)="modal.close('cancel')">
+                    Not Answered</button>
             </div>
             </ng-template>
             
             <!---DataEntry--> 
-            <div class="row bg-secondary text-white" style="padding: 15px; margin-bottom: 5px;">
-                
+            <div class="row bg-secondary text-white" style="padding: 15px; margin-bottom: 5px;">                
                 <div class="col-4"> {{type | uppercase}} Nos : {{daillist.length}} </div>
-                <div class="col-8">  {{exgPhone.name}}, SDE-{{exgPhone.sde}} , {{exgPhone.mobile}}</div>
-               
+                <div class="col-8">  {{exgPhone.name}}, SDE-{{exgPhone.sde}} , {{exgPhone.mobile}}</div>               
             </div>          
                 
                 <div class="shade" *ngFor="let x of daillist">
@@ -94,6 +95,9 @@
                         </div>
                         <div class="col-sm-3" *ngIf="type === 'fault'">
                             {{x.OUTSTANDING_AMT}}                           
+                        </div>
+                        <div class="col-sm-3" *ngIf="type === 'Cfault'">
+                            {{x.OUTSTANDING_AMT.substr(0,10)}}                           
                         </div>
 
                         <div class="col-sm-2">

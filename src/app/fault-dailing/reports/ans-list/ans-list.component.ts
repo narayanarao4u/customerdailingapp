@@ -16,7 +16,7 @@ export class AnsListComponent implements OnInit {
   /*name of the excel-file which will be downloaded. */ 
 fileName= 'CustomerDailing.xlsx';
 
-
+/*
 colorR = {
   'Wkg - Satisfactory':'green',
   'Bill Paid':'green',
@@ -31,10 +31,15 @@ colorR = {
   'Number Closed':'grey',
   'Others':'grey'
 }
+*/
+
 
 public showAll: any = false;
 
   constructor(private ds:FaultdataService, private route:ActivatedRoute) { }
+
+
+  colorR = this.ds.colorSetting().colorR
 
   triggerReadMore() {
     this.showAll = !this.showAll;

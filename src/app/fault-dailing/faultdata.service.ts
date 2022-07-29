@@ -96,5 +96,30 @@ export class FaultdataService {
     return returndata;
   }
 
+  colorSetting(){
+    let mysetting = {
+      colorR : {
+        'Wkg - Satisfactory':'green',
+        'Bill Paid':'green',
+        'Agreed to Pay Bill':'green',
+        
+        'Wkg - Not Satisfactory':'red',
+        'Unwilling - Service Issue':'red',
+        'Unwilling - Billing Issue':'red',
+      
+        'Not Answered':'blue',
+      
+        'Number Closed':'grey',
+        'Others':'grey',
+
+
+        'Fault Attended - Satisfied':'green',  
+        'Fault Attended - Not Satisfied':'orange', 
+        'Fault Not Attended':'red'
+      }
+    }
+    return mysetting
+  }
+
 
 }

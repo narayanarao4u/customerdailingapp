@@ -1,4 +1,5 @@
-.dataEntry{
+.dataEntry, .modal-body{
+    font-size: 1.25em;
     padding: 1px;
     background-color: rgb(246, 250, 193);
 }
@@ -30,3 +31,10 @@
     background: rgb(187, 185, 185);
 }
 
+option {
+    font-size: 1.25em;
+    padding: 21px 0.5em;
+    border: 1px solid;
+    margin: 3px 0;
+    border-radius: 3px;
+}

@@ -63,6 +63,8 @@ hideExchg=true;
 
   checkChange(x){
     let sdca = this.sdca;
+    console.log('fired', x);
+    
     if(sdca.indexOf(x) !== -1){       
        this.sdca.splice(sdca.indexOf(x),1)      
     } else
@@ -109,6 +111,16 @@ hideExchg=true;
 
   ngOnInit(): void {
     this.getSDEList()
+   
+    $(document).ready(function(){
+      $('#all').change(function () {
+        $("input:checkbox").prop('checked', $(this).prop("checked"));
+         let a  = $("input:checkbox")
+         console.log(a);
+         
+    });
+
+    });
     
   }
 

@@ -18,6 +18,7 @@ export class FaultDailingComponent implements OnInit {
   customer : any;
   type = "fault";
   exgPhone:any;
+ 
 
   exchgSelected="";
   closeResult = '';
@@ -25,7 +26,8 @@ export class FaultDailingComponent implements OnInit {
   remarksopt = {
     fault:['Wkg - Not Satisfactory','Number Closed', 'Wkg - Satisfactory','Update Mobile No'],
     ogbar:['Unwilling - Service Issue',  'Unwilling - Billing Issue', 'Bill Paid', 'Agreed to Pay Bill', 'Update Mobile No','Others'],
-    susnp:['Unwilling - Service Issue',  'Unwilling - Billing Issue', 'Bill Paid', 'Agreed to Pay Bill', 'Update Mobile No','Others']
+    susnp:['Unwilling - Service Issue',  'Unwilling - Billing Issue', 'Bill Paid', 'Agreed to Pay Bill', 'Update Mobile No','Others'],
+    Cfault:['Fault Attended - Satisfied',  'Fault Attended - Not Satisfied', 'Fault Not Attended']
   }
 
 
@@ -33,6 +35,8 @@ export class FaultDailingComponent implements OnInit {
     private toastr:ToastrService, 
     private router:Router,
     private modalService:NgbModal) { }
+
+    colorR = this.ds.colorSetting().colorR
 
   checkUserData(){
     let userData = JSON.parse(localStorage.getItem('userData'));
@@ -95,6 +99,8 @@ export class FaultDailingComponent implements OnInit {
       })();
     */
    this.openfeedback(content)
+   console.log(content);
+   
   }
 
   submit(){
@@ -124,7 +130,6 @@ export class FaultDailingComponent implements OnInit {
     this.exchgSelected = "";
     this.getExcode()
     this.daillist = null;    
-
   }
 
   openMsgBox(msg){
@@ -136,8 +141,12 @@ export class FaultDailingComponent implements OnInit {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
           this.closeResult = `Closed with: ${result}`;
           console.log(this.closeResult);
+
+          if(result==='save'){
+            this.submit()
+          }
           
-          this.submit()
+          
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
@@ -155,6 +164,14 @@ export class FaultDailingComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkUserData()
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      // true for mobile device
+      console.log("mobile device");      
+     
+    }else{
+      // false for not mobile device      
+      console.log("Not mobile device");
+    }
   }
 
 }

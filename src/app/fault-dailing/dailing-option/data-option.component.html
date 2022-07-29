@@ -1,7 +1,10 @@
 <div class="container">
   <div class="btn-group btn-group-toggle btn-block" ngbRadioGroup name="radioBasic" [(ngModel)]="type">
     <label ngbButtonLabel class="btn-primary">
-      <input ngbButton  type="radio" value="fault" (change)="handleChange($event)"> FAULT
+      <input ngbButton  type="radio" value="Cfault" (change)="handleChange($event)">CLEARED FAULT
+    </label>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton  type="radio" value="fault" (change)="handleChange($event)">REPEAT FAULT
     </label>
     <label ngbButtonLabel class="btn-info">
       <input ngbButton type="radio" value="ogbar" (change)="handleChange($event)"> OGBAR

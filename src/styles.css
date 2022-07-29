@@ -5,6 +5,26 @@
 
 body{
     margin: 0;
-    padding: 5px;
+    padding: 5px;  
+
  }
 
+.green {
+    background: rgb(156, 226, 156);
+}
+
+.red {
+    background: rgb(236, 155, 155);
+}
+
+.blue {
+    background: rgb(163, 163, 233);
+}
+
+.orange {
+    background: rgb(240, 94, 9);
+}
+
+.grey {
+    background: rgb(128, 128, 128);
+}

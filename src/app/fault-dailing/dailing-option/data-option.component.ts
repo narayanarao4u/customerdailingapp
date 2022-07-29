@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
     styleUrls:['./data-option.component.css']
 })
 export class DailingOptionComponent implements OnInit{
-    type = "fault";
+    type = "Cfault";
     @Output() optionClick = new EventEmitter()
     handleChange($event){
         this.optionClick.emit(this.type)

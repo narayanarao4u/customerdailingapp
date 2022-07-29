@@ -16,21 +16,7 @@ table{
     font-weight: bolder;
 }
 
-.green {
-    background: rgb(156, 226, 156);
-}
 
-.red {
-    background: rgb(236, 155, 155);
-}
-
-.blue {
-    background: rgb(163, 163, 233);
-}
-
-.grey {
-    background: rgb(128, 128, 128);
-}
 
 .bct-cirlce{
     background: white;
