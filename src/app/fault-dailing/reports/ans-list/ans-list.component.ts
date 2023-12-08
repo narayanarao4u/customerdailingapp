@@ -13,6 +13,7 @@ export class AnsListComponent implements OnInit {
   Code:any;
   field:any;
   type = "fault";
+  name:"";
   /*name of the excel-file which will be downloaded. */ 
 fileName= 'CustomerDailing.xlsx';
 
@@ -51,6 +52,7 @@ getData(){
   return this.ds.getansList(this.field, this.Code, this.type).subscribe((res)=>{
     this.data = res['data']
   })
+
 }
 
 exportexcel(): void 
@@ -68,12 +70,22 @@ exportexcel(): void
        XLSX.writeFile(wb, this.fileName);			
     }
 
+  getName(hrmsno){
+    this.ds.getUserData(hrmsno).subscribe((res)=>{
+    this.name = res['data']['User'];
+      
+    })
+  }
   
 
   ngOnInit(): void {
+
     this.Code = this.route.snapshot.params['Code']  
     this.field = this.route.snapshot.params['field']  
     this.type = this.route.snapshot.params['type'] 
+    if(this.field === 'hrno'){
+      this.getName(this.Code)
+    }
     this.getData()
   }
 

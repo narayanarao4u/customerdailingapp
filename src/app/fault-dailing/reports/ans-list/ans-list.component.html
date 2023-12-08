@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-8 h4">
             <span> {{field |uppercase}} : </span> 
-             : <span>{{Code}}</span>
+             : <span>{{Code}} {{name}}</span>
              : <span>{{data?.length}}</span>
          </div>
          <div class="col-4">
@@ -51,6 +51,12 @@
                         Action <span [class.bct-cirlce]="x?.actionTaken" > {{x?.actionTaken?.length}} </span> 
                     </a>
                     <!-- faultDailing/actionTaken/:PHONE_NO/:id -->
+                </td>
+                <td class="d-none">
+                    {{x?.actionTaken?.length}}
+                </td>
+                <td *ngIf="x?.actionTaken" class="d-none">
+                    <span *ngFor="let a of x.actionTaken"> {{a.User}}:- {{a.action}}, <br> </span>
                 </td>
             </tr>
         </tbody>

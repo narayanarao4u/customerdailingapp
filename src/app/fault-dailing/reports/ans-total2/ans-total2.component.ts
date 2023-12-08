@@ -52,8 +52,22 @@ export class AnsTotal2Component implements OnInit {
      }
     return result;
   }
-  btnClicked(data){
-    console.log(data);
+  
+  btnClicked(dtData){
+    
+    // console.log(data);
+    return this.ds.getansweredTotal2(this.field, dtData).subscribe((res) => {
+
+      let rows = res['data'];
+      rows.forEach((row) => {
+        row.items.forEach((item) => {
+          row[item.type] = item.ans;
+        });
+      });
+      
+      this.data = rows
+        
+    });
     
 
   }

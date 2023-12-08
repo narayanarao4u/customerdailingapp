@@ -98,8 +98,13 @@ export class FaultDailingComponent implements OnInit {
       }
       })();
     */
+
+   this.ds.updateDailed(x._id).subscribe((res) => { 
+    x['dailed']=res['data']['dailed']
+  })
+
    this.openfeedback(content)
-   console.log(content);
+
    
   }
 
@@ -144,6 +149,8 @@ export class FaultDailingComponent implements OnInit {
 
           if(result==='save'){
             this.submit()
+          } else if(result==='cancel') {
+            this.exchgSelect()
           }
           
           
@@ -152,6 +159,11 @@ export class FaultDailingComponent implements OnInit {
     });
   }
 
+  serviceType(Service_Type){
+    if(Service_Type.includes('Bharat Fiber')) return 'FTTH'
+    
+    return Service_Type
+  }  
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

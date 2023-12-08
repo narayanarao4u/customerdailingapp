@@ -78,43 +78,52 @@
             <!---DataEntry--> 
             <div class="row bg-secondary text-white" style="padding: 15px; margin-bottom: 5px;">                
                 <div class="col-4"> {{type | uppercase}} Nos : {{daillist.length}} </div>
-                <div class="col-8">  {{exgPhone.name}}, SDE-{{exgPhone.sde}} , {{exgPhone.mobile}}</div>               
+                <div class="col-8">  {{exgPhone?.name}}, SDE-{{exgPhone?.sde}} , {{exgPhone?.mobile}}</div>               
             </div>          
                 
                 <div class="shade" *ngFor="let x of daillist">
                     <div class="row">
-                        <div class="col-sm-12">
-                            {{x.CUSTOMER_NAME}}
+                        <div class="col-sm-12 d-flex justify-content-between " >
+                            <span>{{x.CUSTOMER_NAME}}</span>
+                            <span class="bg-warning"> Mobile No: {{x.MOBILE_NO}}</span>
+                            
                         </div>
                    
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">{{x.PHONE_NO}}</div>
-                        <div class="col-sm-3" *ngIf="type === 'susnp' ||type === 'ogbar' ">
-                            Rs. {{x.OUTSTANDING_AMT}} /-
+                        <div class="col-sm-4">
+                             <span class="bg-primary text-white">{{serviceType(x.SERVICE_TYPE)}} :</span> 
+                             <span>{{x.PHONE_NO}}</span>
+                            </div>
+                        <div class="col-sm-2" *ngIf="type === 'susnp' ||type === 'ogbar' ">
+                            Rs.{{x.OUTSTANDING_AMT}}/-
                         </div>
-                        <div class="col-sm-3" *ngIf="type === 'fault'">
+                        <div class="col-sm-2" *ngIf="type === 'fault'">
                             {{x.OUTSTANDING_AMT}}                           
                         </div>
-                        <div class="col-sm-3" *ngIf="type === 'Cfault'">
+                        <div class="col-sm-2" *ngIf="type === 'Cfault'">
                             {{x.OUTSTANDING_AMT.substr(0,10)}}                           
                         </div>
-
                         <div class="col-sm-2">
-                            <a href="tel:{{x.PHONE_NO}}" class="btn btn-success btn-block" 
+                          Dailed : <span class="badge badge-primary">{{x?.dailed}}</span>
+                        </div>
+                        <div class="col-sm-2">
+                           
+                           <!--  -->
+                            <a  href="tel:{{x.PHONE_NO}}" class="btn btn-success btn-block btn-sm" 
                             (click)="loaddata(x,content)"> 
-                            <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                        
+                            <i class="fa fa-phone fa-2x" aria-hidden="true"></i>                        
                             </a>
                         </div>
-                        <div class="col-sm-3 ">                            
-                            <a href="tel:{{x.MOBILE_NO}}" class="btn btn-info btn-block align-middle" 
+                        <div class="col-sm-2 ">          
+                            <!--   -->
+                            <a  href="tel:{{x.MOBILE_NO}}" class="btn btn-info btn-block align-middle btn-sm" 
+                            disabled
                             (click)="loaddata(x,content)"> 
-                            <i class="fa fa-mobile fa-2x" aria-hidden="true"></i> {{x.MOBILE_NO}}                     
+                            <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>                     
                             </a>
                         </div>
-                    </div>
-    
+                    </div>    
                 </div>
                     
             

@@ -49,8 +49,13 @@ export class FaultdataService {
     return this.http.get(url);
   }
 
-  getansweredTotal2(field){
+  getansweredTotal2(field, dt?:any){
     let url = `http://${this.link}:${this.port}/api-faultData2/answeredTotal/${field}`;
+    if(dt){
+      url = `http://${this.link}:${this.port}/api-faultData2/answeredTotal/${field}/${dt.dt1}/${dt.dt2}`;
+      
+    }
+    
     return this.http.get(url);
   }
 
@@ -84,7 +89,7 @@ export class FaultdataService {
   }
 
   saveData(newData){
-    var returndata;
+    let returndata;
     let url = `http://${this.link}:${this.port}/api-faultData/`;
 
     if(newData._id){
@@ -94,6 +99,19 @@ export class FaultdataService {
     }
 
     return returndata;
+  }
+
+  updateDailed(id) {
+    let data = {_id:id}
+    let returndata;
+    
+    let url = `http://${this.link}:${this.port}/api-faultData/updateDailed/`;
+
+    returndata = this.http.put(url, data);
+   
+    return returndata
+
+
   }
 
   colorSetting(){
